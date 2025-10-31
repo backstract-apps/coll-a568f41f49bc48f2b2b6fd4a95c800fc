@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: coll-a568f41f49bc48f2b2b6fd4a95c800fc-ing
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: coll-a568f41f49bc48f2b2b6fd4a95c800fc.localhost
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: coll-a568f41f49bc48f2b2b6fd4a95c800fc-srv
+                port:
+                  number: 80
+
